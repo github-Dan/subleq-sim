@@ -12,4 +12,4 @@ Instructions
 ------------
 * ri 1 33:  initialize register u1 with value 33 
 * sl 1 2 3: perform subleq with a, b, c being u1, u2, u3
-** Note that the third operand can be a label too. 
+== Note that the third operand can be a label too. 
