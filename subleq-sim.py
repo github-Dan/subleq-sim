@@ -68,13 +68,11 @@ def add_line(l):
   mem[len(mem)] = (op,a,b,c)
 
 def dump():
-  print "======== dump ==================\n"
   s = ''
   for i in range(len(reg)):
     s = s + 'u' + str(i) + ':' + (hex(reg[str(i)])) + '  '
 #print i,':',hex(reg[str(i)])
   print s
-  print "==========================\n"
 
 def is_number(s):
   try:
@@ -92,9 +90,12 @@ def do_subleq():
   global lab
   global reg
 
-  print "pc: ",pc
+  s = 'pc: ' + str(pc)
+#print "pc: ",pc
   (op,a,b,c) = mem[pc]
-  print "op,a,b,c: ",op,a,b,c
+  s = s + ' ' + str(op) + ' ' + str(a) + ' ' + str(b) + ' ' + str(c)
+#print "op,a,b,c: ",op,a,b,c
+  print s
 
 	# Register initialization
   if op == "ri": 
@@ -102,19 +103,15 @@ def do_subleq():
     pc = pc + 1
   else:		
     # b = b - a
-    print 'a, b:',a,b
     reg[b] = reg[b] - reg[a]
     if reg[b] <= 0:
       if is_number(c) == True:
         pc = reg[c]
       elif c != '': 
-        print 'LABEL'
         pc = lab[c]
       else:
-        print 'NEXTPC'
         pc = pc + 1
     else:
-      print 'NEXTPC'
       pc = pc + 1
   dump()
   if c == 'EXIT':
