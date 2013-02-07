@@ -1,0 +1,7 @@
+      ri 1 2
+      ri 2 5
+      sl 3 3 
+      sl 2 3 
+      sl 3 1 BRAN
+      sl 5 5 
+BRAN  sl 1 1 EXIT
