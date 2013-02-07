@@ -65,11 +65,8 @@ def add_line(l):
 
 def dump():
   print "======== dump ==================\n"
-#print mem
-#print "==========================\n"
-#print lab
   for i in range(len(reg)):
-    print i,':',reg[str(i)]
+    print i,':',hex(reg[str(i)])
 #print reg
   print "==========================\n"
 
@@ -81,7 +78,7 @@ def is_number(s):
     return False
 
 def set_reg(i,v):
-  reg[i] = int(v)
+  reg[i] = int(v,16)
 
 def do_subleq():
   global pc
@@ -141,7 +138,8 @@ for line in f:
   l = line.strip('\n')
   l = l.split()
   print l
-  add_line(l)
+  if len(l) > 0 and l[0] != "#":
+    add_line(l)
 
 print mem
 print 'Start program'

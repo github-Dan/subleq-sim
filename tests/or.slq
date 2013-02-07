@@ -1,0 +1,48 @@
+            # Initialize operands 
+            ri 1 10
+            ri 2 6
+
+            ri 5 1
+            ri 6 31
+            sl 3 3 
+CHECK_I     sl 4 4 
+            sl 6 4 MAIN 
+            sl 4 4 FINISH
+
+MAIN        sl 4 4
+            sl 3 4 
+            sl 4 3
+            sl 4 4
+            sl 1 4 PRECOMMON1
+            sl 4 4 ONE
+
+PRECOMMON1  sl 4 4
+            sl 5 4 
+            sl 1 4 PRECOMMON2
+            sl 4 4 ONE
+
+PRECOMMON2  sl 4 4 
+            sl 2 4 PRECOMMON3
+            sl 4 4 ONE
+
+PRECOMMON3  sl 4 4 
+            sl 5 4
+            sl 2 4 COMMON 
+            sl 4 4 ONE
+
+ONE         sl 4 4 
+            sl 5 4
+            sl 4 3 
+
+COMMON      sl 4 4 
+            sl 1 4
+            sl 4 1 
+            sl 4 4
+            sl 2 4
+            sl 4 2
+            sl 5 6
+            sl 4 4 CHECK_I
+
+# u3 should have the result
+FINISH      sl 4 4 EXIT
+
