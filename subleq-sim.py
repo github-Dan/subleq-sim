@@ -8,6 +8,10 @@ lab = {}
 reg = {}
 pc = 0
 
+def hex2dec(s):
+  return int(s,16)
+def dec2hex(n):
+  return "%X" %n
 
 def file_open(fname):
   f = open(fname, 'r+')
@@ -65,9 +69,11 @@ def add_line(l):
 
 def dump():
   print "======== dump ==================\n"
+  s = ''
   for i in range(len(reg)):
-    print i,':',hex(reg[str(i)])
-#print reg
+    s = s + 'u' + str(i) + ':' + (hex(reg[str(i)])) + '  '
+#print i,':',hex(reg[str(i)])
+  print s
   print "==========================\n"
 
 def is_number(s):
