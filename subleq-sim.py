@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+from numpy import int32
 
 # Data structures
 mem = {}
@@ -9,7 +10,7 @@ reg = {}
 pc = 0
 
 def hex2dec(s):
-  return int(s,16)
+  return unsigned(s,16)
 def dec2hex(n):
   return "%X" %n
 
@@ -82,7 +83,7 @@ def is_number(s):
     return False
 
 def set_reg(i,v):
-  reg[i] = int(v,16)
+  reg[i] = int(v)
 
 def do_subleq():
   global pc
